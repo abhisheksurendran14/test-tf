@@ -1,20 +1,13 @@
-pipeline {
-  
-  // use only nodes marked as 'tensorflow'
-  agent { node { label 'tensorflow' } }
-  
-  stages {
-
+node('tensorflow')
+{
   stage('Clone repository') {
+        git url: "https://github.com/abhisheksurendran14/GitRepository.git", credentialsId: 'abhisheksurendran14'
         checkout scm
         }
 
     stage('Training') {
-      steps {
         echo "Training problem"
             sh "python tf_example.py"
         echo "All done"
-      }
     }
-  }
 }
