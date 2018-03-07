@@ -6,7 +6,7 @@ node('tensorflow')
         }
   stage('Prepare'){
      sh '''
-   pip install tensorflow 
+   sudo pip install tensorflow 
    '''
   }
 
